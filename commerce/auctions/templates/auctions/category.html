@@ -1,0 +1,41 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <main>
+        <section>            
+            <div class="container pb-4">
+                <div class="row justify-content-center text-center">
+                    {% for category in categories %}
+                        <div class="col-lg-3 col-sm-4 border rounded mx-4 my-2 p-2 py-auto py-lg-4 btn-light">
+                            <a class="category stretched-link text-decoration-none text-dark" href="{% url 'all_category' %}?category={{ category.name}}">{{ category.name}}</a>
+                        </div>
+                    {% empty %}
+                        No categories found.
+                    {% endfor %}
+                </div>
+            </div>
+                
+                <div class="container pb-4">
+                    <div class="row text-center">
+                        {% for product in products %}
+                            <div class="col-lg-3 col-sm-4">
+                              <a href={% url 'listing_detail' product.id %} class="btn">
+                                {% if product.image_url %}
+                                  <img src='{{ product.image_url }}' alt="{{ product.title }}" style="width:100%">
+                                {% else %}
+                                  <img src="https://demofree.sirv.com/nope-not-here.jpg">
+                                {% endif %}                    
+                                </a> 
+                                <h5>{{ product.title|truncatewords:3 }}</h5>
+                                <h6>${{ product.accepted_bid }}</h6>
+                                <small>{{ product.description|truncatewords:6 }}</small>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>   
+        </section>
+    </main>
+{% endblock %}
+
+
+

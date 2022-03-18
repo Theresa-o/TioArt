@@ -1,0 +1,28 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Active Listings</h2>
+    <main>
+        <section> 
+          <div class="container pb-4">
+            <div class="row text-center">
+              {% for listing in listings %}
+                <div class="col-lg-3 col-sm-4">
+                  <a href={% url 'listing_detail' listing.id %}>
+                    {% if listing.image_url %}
+                      <img src='{{ listing.image_url }}' alt="{{ listing.title }}" style="width:100%">
+                    {% else %}
+                      <img src="https://demofree.sirv.com/nope-not-here.jpg"  style="width:100%">
+                    {% endif %}                    
+                  </a> 
+                  <h5>{{ listing.title|truncatewords:3 }}</h5>
+                  <h6>${{ listing.last_bid }}</h6>
+                  <h6>{{listing.no_of_bids}} bid(s)</h6>
+                  <small>{{ listing.description|truncatewords:6 }}</small>
+                </div>
+              {% endfor %}
+            </div>
+          </div>              
+        </section>
+    </main>
+{% endblock %}
