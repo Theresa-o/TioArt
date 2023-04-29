@@ -8,7 +8,7 @@ This is an e-commerce auction site for artworks that will allow users to create 
 - CSS/ Bootstrap
 - HTML
 
-### Specification
+### Specifications
 
 This project was built against the following specification:
 
