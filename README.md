@@ -1,6 +1,6 @@
 # TioArt Auction
 
-This is an e-commerce auction site for artworks that will allow users to create listings, place bids on listings, comment on listings and add listings to a watchlist.
+This is an e-commerce auction site for artworks that will allow users to create listings, place bids on listings, comment on listings and add listings to a watchlist
 
 ### TECH STACK
 
